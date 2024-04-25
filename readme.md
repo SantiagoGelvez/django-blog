@@ -64,18 +64,6 @@ other versions as well.
         \q
         ```
 
-4. CREATE DATABASE personal_blog;
-    ```
-
-1. Open *psql* terminal.
-2. 
-2. Create database using following command:
-
-    ```
-    CREATE DATABASE personal_blog;
-    ```
-3. 
-
 ---
 
 ### Run Project

@@ -1,0 +1,14 @@
+* {
+font-family: "Trebuchet MS", sans-serif;
+}
+
+#sidebar {
+    width: 30%;
+    float: left;
+    margin-right: 5%;
+}
+
+#content {
+    width: 65%;
+    float: left;
+}

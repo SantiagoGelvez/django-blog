@@ -1,6 +1,11 @@
+from django.http import JsonResponse
 from django.shortcuts import render, get_object_or_404
-from .models import Post
+from rest_framework.decorators import api_view
+
 # from django.http import Http404
+
+from .models import Post
+from .serializers import PostSerializer
 
 
 def post_detail(request, id):
@@ -25,3 +30,10 @@ def post_list(request):
     return render(request,
                   'blog/post/list.html',
                   {'posts': posts})
+
+
+@api_view(['GET'])
+def post_list_api(request):
+    posts = Post.published.all()
+    serializer = PostSerializer(posts, many=True)
+    return JsonResponse(serializer.data, safe=False)

@@ -37,3 +37,12 @@ def post_list_api(request):
     posts = Post.published.all()
     serializer = PostSerializer(posts, many=True)
     return JsonResponse(serializer.data, safe=False)
+
+
+@api_view(['GET'])
+def post_detail_api(request, id):
+    post = get_object_or_404(Post,
+                             id=id,
+                             status=Post.Status.PUBLISHED)
+    serializer = PostSerializer(post)
+    return JsonResponse(serializer.data, safe=False)
